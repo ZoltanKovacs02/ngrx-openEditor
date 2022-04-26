@@ -12,12 +12,10 @@ import { CounterState } from '../state/counter.state';
 export class CounterOutputComponent implements OnInit {
   //@Input() counter!: Number | null;
   //@Input() counter!: Number | null;
-  counter!: number;
+  counter$!: Observable<number>;
   constructor(private store: Store<{ counter: CounterState }>) {}
 
   ngOnInit(): void {
-    this.store.select(getCounter).subscribe((counter) => {
-      this.counter = counter;
-    });
+    this.counter$ = this.store.select(getCounter);
   }
 }
