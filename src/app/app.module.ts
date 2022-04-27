@@ -15,6 +15,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { postsReducer } from './posts/state/posts.reducer';
+import { appReducer } from './store/app.state';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ counter: counterReducer }),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
