@@ -11,7 +11,7 @@ import { getPost } from '../state/posts.selector';
   styleUrls: ['./posts-list.component.css'],
 })
 export class PostsListComponent implements OnInit {
-  posts: Observable<Post[]> | undefined;
+  posts!: Observable<Post[]>;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
